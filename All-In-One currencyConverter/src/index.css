@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+body {
+  font-family: "Manrope";
+  
+}
+
+@layer components {
+  .my-header {
+    @apply  text-2xl text-green-500 mt-5 shadow-lime-900 
+    font-bold text-left md:text-4xl sm:text-left;
+  }
+
+  .inputMen {
+    @apply w-full max-w-lg px-7 py-4 border
+     border-gray-300 mx-auto rounded-md shadow-sm 
+     text-sm text-base  sm:max-w-6xl sm:text-2xl;
+  }
+}
