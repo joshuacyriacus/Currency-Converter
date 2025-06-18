@@ -11,7 +11,7 @@ A sleek and responsive real-time currency converter built with **React.js**. Eas
 - 💡 Auto-updates all currency fields on change
 
 ##  Live Demo
- [Click here to try the live app]()
+ [Click here to try the live app](https://currency-flick.netlify.app/)
 
 ##  Tech Stack
 
