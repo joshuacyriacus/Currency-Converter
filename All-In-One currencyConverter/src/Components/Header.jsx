@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import CurrencyAdd from './components/CurrencyAdd'
 
   const allCurrencies = ['NGN', 'USD', 'EUR', 'GBP', 'JPY', 'CAD', 'INR'];
   
@@ -79,42 +80,16 @@ const Header = () => {
           onClick={() => setIsOpen(true)} ></i>
       </div>
 
-  
-         {isOpen && (
-         <div
-           onClick={closeModal}
-           className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm bg-black/40"
-        >
-          {/* Modal Container */}
-          <div
-            onClick={(e) => e.stopPropagation()} // Prevent click bubbling
-            className="bg-white p-6 rounded-xl shadow-lg w-full max-w-md mx-4 text-center"
-          >
-            <h2 className="text-xl font-semibold mb-4">Hello 👋, Add a new currency</h2>
-            <select
-              value={selectedCurrency}
-              onChange={(e) => setSelectedCurrency(e.target.value)}
-              className="inputMen"
-            >
-              <option value="">Select a currency</option>
-              {allCurrencies
-                .filter((code) => !amounts[code]) // exclude already added
-                .map((code) => (
-                  <option key={code} value={code}>
-                    {code}
-                  </option>
-                ))}
-           </select>
-            <button
-              onClick={addCurrency}
-              className="px-4 py-2 mt-5 bg-green-500 text-white rounded hover:bg-green-600 transition"
-            >
-              Add
-            </button>
-          </div>
-        </div>
-      )}
-
+      <CurrencyAdd
+        isOpen={isOpen}
+        closeModal={closeModal}
+        selectedCurrency={selectedCurrency}
+        setSelectedCurrency={setSelectedCurrency}
+        allCurrencies={allCurrencies}
+        amounts={amounts}
+        addCurrency={addCurrency}
+      />
+        
        <div  className="w-full max-w-md mx-auto space-y-3 flex flex-col sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl px-2 sm:px-4 md:px-6">
         {Object.keys(amounts).map((currency) => (
           <div key={currency} className="flex items-center">
